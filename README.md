@@ -1,2 +1,38 @@
 # test-Sign-In
 create a login form 
+<!DOCTYPE html>
+<html lang = "en-US">
+    
+    <head>
+    <title>Sign Up form</title>
+        <meta charset="utf-8">
+        <link rel= "stylesheet" type="text/css" href="signUPCSS.css">
+    
+    </head>
+    <body>
+    <div class = "myForm">
+        <div class="content">
+        <form name="myForm" onsubmit="return validateForm()"method="post">
+            <div class="fields">
+            <fieldset>
+                <legend>Sign UP!</legend><br>
+                <label>Name:</label> <input type="text" id="fname" class="fname"name="name" ><br><hr>
+                <label>Last Name:</label> <input type="text" id="lname" class="lname"name="family" ><br><hr>
+                <label>Email:</label> <input type="text" id="email" class="email"name="mail" ><br><hr>
+                <label>Password: </label> <input type="text" id="passw"class="password"name="pass" ><br><hr>
+                <label>Repeat Password:</label> <input type="text" id="rpass" class="reppass"name="rpas" ><br>
+            
+            </fieldset>
+            </div>
+        </form>
+        
+        <button type="button" class = "cancelDate ">Cancel</button>
+        <button type="button" class = "newSignUp">Sign Up</button>
+        </div>
+    
+        <p>This is not in the div!</p>
+        <script src="formJS1.js"></script>
+        </div>
+    </body>
+
+</html>
