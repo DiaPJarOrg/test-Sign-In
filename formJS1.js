@@ -20,10 +20,6 @@ function printArray(array) {
     }
 
 }
-// var data =[{name:1,lname:2,email:3,pwd:4,reppwd:5},{name:6,lname:7,email:8,pwd:9,reppwd:10}];
-
-// var newUser = new CreateUser(fname,lname,email,passw,rpass);
-// var newUser1 = new CreateUser("Sara", "Stancheva", "sasa@abv.bg", "pass2", "pass1");
 
 var data = [];
 var newUser;
@@ -39,7 +35,7 @@ function getUserData() {
 		passw : document.querySelector('.password').value,
 		rpass : document.querySelector('.reppass').value
     }
-    //console.log("bbbbb");
+    
      newUser = new CreateUser(incomes.fname,incomes.lname,incomes.email,incomes.passw,incomes.rpass);
      return pushToArray();
 
@@ -59,17 +55,17 @@ function pushToArray() {
 }
 
 
-printArray(data);
+//printArray(data);
 
-    // console.log(Object.values(data));
-    // console.log(newUser2);
- 
 var myCookies={};
 var user_name;
+
+//getUserData();
 
 function saveCookies(){
     
 getUserData();
+validateForm();
         //myArrayOfUsers= 
    var userData = data;
     
@@ -97,10 +93,40 @@ getUserData();
     }
     */
 function validateForm(){
-    var uName= document.forms["myForm"]["name"].value;
-    if (x == "") {
-        alert("Name must be filled out");
+    var email = document.getElementById('email');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var a= document.forms["myForm"]["name"].value;
+    var b= document.forms["myForm"]["family"].value;
+    var c= document.forms["myForm"]["email"].value;
+    var d= document.forms["myForm"]["pass"].value;
+    var e= document.forms["myForm"]["rpas"].value;
+    //if field are empty
+    if ((a == "") || (b == "") || (c == "") || (d == "") || (e == "") ){
+        document.getElementById('error').innerHTML="All fields must be filled in!";
         return false;
+        //if name or lname are less then 3 symbols
+    }else if ((a.length<3 || a.length>30) || (b.length<3|| b.length>30) ||(c.length<3|| c.length>30) || (d.length<3|| d.length>30) || (e.length<3|| e.length>30)) {
+      document.getElementById('error').innerHTML="There is an invalid information in the fields!(less than 3 symbols)";
+        return false; 
+        
+        // if pass is not same in both fields
+    }else if (d != e){
+        document.getElementById('error').innerHTML="Password in both fields is not same!";
+        return false;
+        //if email not consist @ or .
+    }else if(!filter.test(email.value)) {
+    alert('Please provide a valid email address');
+    email.focus;
+    return false;
+        /*c != /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})/){
+        document.getElementById('error').innerHTML="Please enter a valid e-mail address!";
+        return false; 
+        */
+    }else {
+        document.getElementById('error').innerHTML="Welcome!!!";
+        return true;
     }
     
+        
+        
 }
