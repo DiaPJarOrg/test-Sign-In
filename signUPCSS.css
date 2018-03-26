@@ -24,6 +24,10 @@ div {
 p {
     color:black
 }
+p.error{
+    color:red
+}
+    
 button.cancelDate {
     background-color: rgba(221, 63, 63, 0.94);
     color: black;
