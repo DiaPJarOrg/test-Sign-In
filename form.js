@@ -1,13 +1,16 @@
 
 //what to happen after the enter or Sign up button is pressed 
-
-   document.querySelector('.newSignUp').addEventListener('click', saveCookies);
+if(typeof document !== "undefined"){
+    document.querySelector('.newSignUp').addEventListener('click', saveCookies);
     document.addEventListener('keypress', function (event) {
        
         if (event.keyCode === 13 || event.which === 13) {
             saveCookies();
         };
     });
+
+}
+   
 
 
 
